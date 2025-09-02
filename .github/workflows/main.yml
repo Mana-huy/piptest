@@ -1,5 +1,5 @@
 name: Example workflow for Python using Snyk 
-on: push
+on: pull_request
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -10,4 +10,5 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
+        command: monitor
         args: --file=Pipfile
